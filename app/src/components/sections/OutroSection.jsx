@@ -16,14 +16,14 @@ function OutroSection({ copy, exampleLanguage = 'ko' }) {
           <a href="#hero" className="neo-btn bg-neo-accent px-8 py-4 text-sm font-black uppercase tracking-[0.14em]">
             {copy.backToTop}
           </a>
-          <a
+          {/* <a
             href="https://github.com/woduq1414/ko-microgpt"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.14em]"
           >
             {copy.goToGithub}
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

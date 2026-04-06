@@ -106,7 +106,7 @@ function ChapterTwoTokenizationDemo({ tokenizer, reducedMotion, isMobile, copy, 
     <div className="token-demo-wrap reveal">
       <div className="token-syllable-card -rotate-1 py-1">
         <p className="inline-block border-4 border-black bg-neo-secondary px-3 py-2 text-xs font-black uppercase tracking-[0.2em]">
-          EXAMPLE NAME
+          Приклад реального імені
         </p>
         <div className="token-name-switcher mt-4">
           <button
@@ -131,7 +131,7 @@ function ChapterTwoTokenizationDemo({ tokenizer, reducedMotion, isMobile, copy, 
         </div>
 
         <p className="mt-5 inline-block border-4 border-black bg-neo-accent px-3 py-2 text-xs font-black uppercase tracking-[0.2em]">
-          TOKEN SEQUENCE
+          Послідовність токенів:
         </p>
         <div className="token-chip-list">
           {tokenSequence.map((token) => {

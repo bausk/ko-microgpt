@@ -103,7 +103,7 @@ function HeroSection({
       <div aria-hidden="true" className="absolute inset-0 texture-halftone opacity-20" />
 
       <div className="hero-control-cluster">
-        <button
+        {/* <button
           ref={languageButtonRef}
           type="button"
           className="hero-language-button hero-sticker"
@@ -114,7 +114,7 @@ function HeroSection({
           aria-controls="hero-language-modal"
         >
           {copy.languageButtonText}
-        </button>
+        </button> */}
       </div>
 
       <button
@@ -149,14 +149,14 @@ function HeroSection({
           <a href="#lesson-1" className="neo-btn bg-neo-accent px-8 py-4 text-sm font-black uppercase tracking-[0.14em]">
             {copy.startFromData}
           </a>
-          <a
+          {/* <a
             href="https://github.com/woduq1414/ko-microgpt"
             target="_blank"
             rel="noopener noreferrer"
             className="neo-btn bg-neo-secondary px-8 py-4 text-sm font-black uppercase tracking-[0.14em]"
           >
             {copy.goToGithub}
-          </a>
+          </a> */}
         </div>
       </div>
 
