@@ -142,13 +142,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 01',
       title: 'DATA',
       description:
-        'To train a GPT model that generates names, we collected many names. In this context, each name works like a document.',
+        'Щоб навчити GPT модель генерувати імена, ми зібрали багато імен. У цьому контексті кожне ім\'я діє як документ.',
       points: [
-        'We collect Korean name samples to build a training dataset.',
-        'Each name is one document read by the model.',
-        'More documents help the model learn name patterns more stably.',
+        'Ми збираємо приклади імен для побудови навчального набору даних.',
+        'Кожне ім\'я - це один документ, прочитаний моделлю.',
+        'Більше документів допомагає моделі стабільніше вивчати закономірності імен.',
       ],
-      takeaway: 'As data quality improves, generated name quality improves too.',
+      takeaway: 'Зі покращенням якості даних покращується і якість згенерованих імен.',
       bgClass: 'bg-neo-secondary',
     },
     {
@@ -156,13 +156,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 02',
       title: 'TOKENIZATION',
       description:
-        'To let the model learn how names are formed, each name is split into phoneme units (initial, medial, final), and each unit is mapped to a unique token ID so the model can process it. A special [BOS] token is added at the start and end to mark boundaries.',
+        'Щоб модель вивчила, як формуються імена, кожне ім\'я розділяється на одиниці звуків (початкова, серединна, кінцева), і кожна одиниця відображається на унікальний token ID, щоб модель могла її обробити. Спеціальний [BOS] токен додається на початок і кінець для позначення меж.',
       points: [
-        'Use left/right arrows to switch example names and inspect tokenization.',
-        'Each phoneme token is mapped to a unique token id used by the model.',
-        'The BOS token is a special marker indicating sequence boundaries.',
+        'Використовуйте стрілки вліво/вправо для переключення прикладів імен і перевірки токенізації.',
+        'Кожен токен звука відображається на унікальний token id, який використовує модель.',
+        'Токен BOS - це спеціальна мітка, яка вказує на межі послідовності.',
       ],
-      takeaway: 'Converting names into phoneme + id sequences makes them computable model inputs.',
+      takeaway: 'Перетворення імен на послідовності звуків + id робить їх придатними для обчислень входами моделі.',
       bgClass: 'bg-neo-muted',
     },
     {
@@ -170,13 +170,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 03',
       title: 'EMBEDDING',
       description:
-        'The model input embedding is built by adding token embedding and position embedding. The final vector changes depending on which phoneme appears at which position.',
+        'Вкладення входу моделі створюється додаванням вкладення токена та вкладення позиції. Остаточний вектор змінюється залежно від того, який звук з\'являється в якій позиції.',
       points: [
-        'Each token is converted to a 16-dimensional numeric vector (token embedding).',
-        'The current position is also represented as a 16-dimensional vector (position embedding).',
-        'The model input is the element-wise sum of these two vectors.',
+        'Кожен токен перетворюється на 16-вимірний числовий вектор (token embedding).',
+        'Поточна позиція також представлена як 16-вимірний вектор (position embedding).',
+        'Вхід моделі - це поелементна сума цих двох векторів.',
       ],
-      takeaway: 'Even the same phoneme gets a different input embedding when position changes.',
+      takeaway: 'Навіть один і той же звук отримує інше вкладення входу при зміні позиції.',
       bgClass: 'bg-white',
     },
     {
@@ -184,13 +184,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 04',
       title: 'ATTENTION',
       description:
-        'Given the selected example name and index, we compute Q, K, and V from Final Embedding (x), derive Attention Output, and finally calculate the probability of each possible next token.',
+        'З огляду на вибраний приклад імені та індекс, ми обчислюємо Q, K та V з Final Embedding (x), отримуємо Attention Output та нарешті обчислюємо ймовірність кожного можливого наступного токена.',
       points: [
-        'Choose a Query position to compute similarity against previous tokens.',
-        'K represents addresses of information, and V represents the actual content to retrieve.',
-        'Applying softmax weights and combining V gives the final Attention Output.',
+        'Виберіть позицію Query для обчислення подібності порівняно з попередніми токенами.',
+        'K представляє адреси інформації, а V представляє фактичний вміст для отримання.',
+        'Застосування ваг softmax та комбінування V дає остаточний Attention Output.',
       ],
-      takeaway: 'Attention selectively gathers relevant past information for the current position.',
+      takeaway: 'Attention вибірково збирає релевантну інформацію з минулого для поточної позиції.',
       bgClass: 'bg-neo-muted',
     },
     {
@@ -198,13 +198,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 05',
       title: 'LOSS AND GRADIENT',
       description:
-        'At each POS, we compare prediction and target token probability to compute loss. We then compute how much each parameter contributes to that loss via backpropagation (gradient).',
+        'На кожному POS ми порівнюємо передбачення та ймовірність цільового токена для обчислення loss. Потім ми обчислюємо, наскільки кожен параметр сприяє цьому loss через backpropagation (gradient).',
       points: [
-        'Inspect next-token probabilities from POS 0 to the final prediction POS in order.',
-        'For each POS, only five probabilities around the target token are shown in a vertical list.',
-        'Review per-POS token loss and mean loss together below.',
+        'Перевіряйте ймовірності наступного токена від POS 0 до останнього POS передбачення в порядку.',
+        'Для кожного POS у вертикальному списку показано лише п\'ять ймовірностей навколо цільового токена.',
+        'Переглядайте token loss та mean loss для кожного POS разом нижче.',
       ],
-      takeaway: 'Training is the process of lowering mean loss by raising target-token probability at each POS.',
+      takeaway: 'Навчання - це процес зниження mean loss шляхом підвищення ймовірності цільового токена на кожному POS.',
       bgClass: 'bg-white',
     },
     {
@@ -212,13 +212,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 06',
       title: 'TRAINING',
       description:
-        'Using each parameter\'s gradient contribution to loss, the model learns by repeatedly updating parameters in the direction that reduces loss.',
+        'Використовуючи внесок gradient кожного параметра до loss, модель вчиться, повторно оновлюючи параметри в напрямку, який зменшує loss.',
       points: [
-        'Choose a training range with step presets (50/100/500/1000) and replay from step 0.',
-        'Use pause, reset, and slider controls to inspect any step state directly.',
-        'Compare the selected parameter\'s gradient and updated 16D values side by side.',
+        'Виберіть діапазон навчання з попередніми встановленнями кроку (50/100/500/1000) та повторіть з кроку 0.',
+        'Використовуйте паузу, скидання та керування повзунком для прямої перевірки будь-якого стану кроку.',
+        'Порівняйте gradient вибраного параметра та оновлені 16D значення рядом.',
       ],
-      takeaway: 'The formula is simple, but actual values follow Adam updates.',
+      takeaway: 'Формула проста, але фактичні значення слідують Adam оновленням.',
       bgClass: 'bg-neo-muted',
     },
     {
@@ -226,13 +226,13 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 07',
       title: 'INFERENCE',
       description:
-        'With the trained model, we generate new names by sampling tokens from next-token probability distributions at each POS and building phonemes sequentially.',
+        'З навченою моделлю ми генеруємо нові імена, беручи вибірки токенів з розподілів ймовірності наступного токена на кожному POS і послідовно будуючи звуки.',
       points: [
-        'Store up to 10 generated names in the top queue and click to compare them.',
-        'Adjust the Temperature slider to observe diversity changes in sampling.',
-        'Replay per-POS next-token probabilities and sampled tokens for the selected name.',
+        'Збережіть до 10 згенерованих імен у верхній черзі та натисніть, щоб порівняти їх.',
+        'Відрегулюйте повзунок Temperature, щоб спостерігати зміни різноманітності в sampling.',
+        'Повторіть ймовірності наступного токена та вибрані токени для кожного POS для вибраного імені.',
       ],
-      takeaway: 'Inference samples next tokens step by step from learned probability distributions.',
+      takeaway: 'Inference бере вибірки наступних токенів крок за кроком з вивчених розподілів ймовірності.',
       bgClass: 'bg-neo-secondary',
     },
     {
@@ -240,37 +240,37 @@ export const LESSON_SECTIONS_BY_LANG = {
       label: 'CHAPTER 08',
       title: 'REAL GPT',
       description:
-        'Microgpt (the model covered on this site) is a simplified version that exposes GPT\'s algorithmic skeleton, while real GPT scales the same principles with massive data, hardware, and post-processing pipelines.',
+        'Microgpt (модель, розглянута на цьому сайті) - це спрощена версія, яка розкриває алгоритмічний скелет GPT, тоді як real GPT масштабує ті ж принципи з масивними даними, апаратом і конвеєрами постобробки.',
       points: [
         {
-          topic: 'Data',
-          similarity: 'Both learn text distributions to predict the next token, and data quality strongly impacts model quality.',
-          difference: 'Microgpt uses a small name dataset, while real GPT trains on trillion-scale corpora from web/books/code after deduplication, quality filtering, and domain mixing.',
+          topic: 'Дані',
+          similarity: 'Обидва вивчають текстові розподіли для передбачення наступного токена, і якість даних сильно впливає на якість моделі.',
+          difference: 'Microgpt використовує невеликий набір даних імен, тоді як real GPT навчається на трильйонному масштабі корпусів з веб/книг/коду після дедублікації, фільтрування якості та змішування доменів.',
         },
         {
-          topic: 'Tokenization',
-          similarity: 'Both convert strings into integer token sequences and then embeddings.',
-          difference: 'Microgpt uses character/phoneme-level tokenization with a small vocabulary, while real GPT uses BPE-family subword tokenizers with around ~100k vocabulary.',
+          topic: 'Токенізація',
+          similarity: 'Обидва перетворюють рядки на послідовності цілих токенів, а потім вкладення.',
+          difference: 'Microgpt використовує токенізацію на рівні символу/фонеми з невеликим словником, тоді як real GPT використовує subword tokenizers родини BPE з близько ~100k словником.',
         },
         {
-          topic: 'Embedding',
-          similarity: 'Both combine token embedding and position information into transformer input representations.',
-          difference: 'Microgpt focuses on low-dimensional dense embeddings, while real GPT combines high-dimensional embeddings, RoPE, and normalization/scaling strategies for long-context stability.',
+          topic: 'Вкладення',
+          similarity: 'Обидва поєднують token embedding та інформацію про позицію у представлення входу трансформатора.',
+          difference: 'Microgpt зосереджується на низькомірних щільних вкладеннях, тоді як real GPT поєднує багатовимірні вкладення, RoPE та стратегії нормалізації/масштабування для стабільності довгого контексту.',
         },
         {
-          topic: 'Model Architecture',
-          similarity: 'Both share transformer blocks built from Attention, MLP, and residual connections.',
-          difference: 'Microgpt is around thousands of parameters and one layer, while real GPT scales to hundreds of billions of parameters and hundreds of layers with optimizations like GQA, gated activations, and MoE.',
+          topic: 'Архітектура моделі',
+          similarity: 'Обидва мають спільну структуру блоків трансформатора, побудованих з Attention, MLP та залишкових з\'єднань.',
+          difference: 'Microgpt - це близько тисяч параметрів і один шар, тоді як real GPT масштабується до сотень мільярдів параметрів і сотень шарів з оптимізаціями, такими як GQA, gated activations та MoE.',
         },
         {
-          topic: 'Training Method',
-          similarity: 'Both update parameters through backpropagation and Adam-family optimizers to minimize loss.',
-          difference: 'real GPT uses post-training (SFT and preference optimization such as RLHF/RLAIF) after large-scale pretraining to improve instruction-following, response quality, and safety alignment.',
+          topic: 'Метод навчання',
+          similarity: 'Обидва оновлюють параметри через backpropagation та optimizer сім\'ї Adam для мінімізації loss.',
+          difference: 'Real GPT використовує post-training (SFT та preference optimization, такі як RLHF/RLAIF) після великомасштабного pretraining для покращення слідування інструкціям, якості відповідей та вирівнювання безпеки.',
         },
         {
-          topic: 'Inference',
-          similarity: 'Both generate tokens autoregressively one step at a time.',
-          difference: 'real GPT requires a separate large-scale inference stack combining batching, KV cache paging, quantization, speculative decoding, and multi-GPU distributed serving.',
+          topic: 'Висновок',
+          similarity: 'Обидва генерують токени autoregressively один за одним.',
+          difference: 'Real GPT вимагає окремого великомасштабного стека inference, що поєднує batching, KV cache paging, quantization, speculative decoding та мультиGPU розподілене обслуговування.',
         },
       ],
       bgClass: 'bg-white',
@@ -351,61 +351,61 @@ const LESSON_SECTION_OVERRIDES_BY_EXAMPLE_LANG = {
     en: {
       'lesson-1': {
         points: [
-          'We collect English name samples to build a training dataset.',
-          'Each name is one document read by the model.',
-          'More documents help the model learn name patterns more stably.',
+          'Ми збираємо приклади англійських імен для побудови навчального набору даних.',
+          'Кожне ім\'я - це один документ, прочитаний моделлю.',
+          'Більше документів допомагає моделі стабільніше вивчати закономірності імен.',
         ],
       },
       'lesson-2': {
         description:
-          'To let the model learn how names are formed, each name is split into character units, and each character is mapped to a unique token ID so the model can process it. A special [BOS] token is added at the start and end to mark boundaries.',
+          'Щоб модель вивчила, як формуються імена, кожне ім\'я розділяється на одиниці символів, і кожен символ відображається на унікальний token ID, щоб модель могла його обробити. Спеціальний [BOS] токен додається на початок і кінець для позначення меж.',
         points: [
-          'Use left/right arrows to switch example names and inspect tokenization.',
-          'Each character token is mapped to a unique token id used by the model.',
-          'The BOS token is a special marker indicating sequence boundaries.',
+          'Використовуйте стрілки вліво/вправо для переключення прикладів імен і перевірки токенізації.',
+          'Кожен токен символу відображається на унікальний token id, який використовує модель.',
+          'Токен BOS - це спеціальна мітка, яка вказує на межи послідовності.',
         ],
-        takeaway: 'Converting names into character + id sequences makes them computable model inputs.',
+        takeaway: 'Перетворення імен на послідовності символів + id робить їх придатними для обчислень входами моделі.',
       },
       'lesson-3': {
         description:
-          'The model input embedding is built by adding token embedding and position embedding. The final vector changes depending on which character appears at which position.',
-        takeaway: 'Even the same character gets a different input embedding when position changes.',
+          'Вкладення входу моделі створюється додаванням вкладення токена та вкладення позиції. Остаточний вектор змінюється залежно від того, який символ з\'являється в якій позиції.',
+        takeaway: 'Навіть один і той же символ отримує інше вкладення входу при зміні позиції.',
       },
       'lesson-7': {
         description:
-          'With the trained model, we generate new names by sampling tokens from next-token probability distributions at each POS and building names character by character.',
+          'З навченою моделлю ми генеруємо нові імена, беручи вибірки токенів з розподілів ймовірності наступного токена на кожному POS і будуючи імена символ за символом.',
       },
       'lesson-8': {
         points: [
           {
-            topic: 'Data',
-            similarity: 'Both learn text distributions to predict the next token, and data quality strongly impacts model quality.',
-            difference: 'Microgpt uses a small name dataset, while real GPT trains on trillion-scale corpora from web/books/code after deduplication, quality filtering, and domain mixing.',
+            topic: 'Дані',
+            similarity: 'Обидва вивчають текстові розподіли для передбачення наступного токена, і якість даних сильно впливає на якість моделі.',
+            difference: 'Microgpt використовує невеликий набір даних імен, тоді як real GPT навчається на трильйонному масштабі корпусів з веб/книг/коду після дедублікації, фільтрування якості та змішування доменів.',
           },
           {
-            topic: 'Tokenization',
-            similarity: 'Both convert strings into integer token sequences and then embeddings.',
-            difference: 'Microgpt uses character-level tokenization with a small vocabulary, while real GPT uses BPE-family subword tokenizers with around ~100k vocabulary.',
+            topic: 'Токенізація',
+            similarity: 'Обидва перетворюють рядки на послідовності цілих токенів, а потім вкладення.',
+            difference: 'Microgpt використовує токенізацію на рівні символів з невеликим словником, тоді як real GPT використовує subword tokenizers родини BPE з близько ~100k словником.',
           },
           {
-            topic: 'Embedding',
-            similarity: 'Both combine token embedding and position information into transformer input representations.',
-            difference: 'Microgpt focuses on low-dimensional dense embeddings, while real GPT combines high-dimensional embeddings, RoPE, and normalization/scaling strategies for long-context stability.',
+            topic: 'Вкладення',
+            similarity: 'Обидва поєднують token embedding та інформацію про позицію у представлення входу трансформатора.',
+            difference: 'Microgpt зосереджується на низькомірних щільних вкладеннях, тоді як real GPT поєднує багатовимірні вкладення, RoPE та стратегії нормалізації/масштабування для стабільності довгого контексту.',
           },
           {
-            topic: 'Model Architecture',
-            similarity: 'Both share transformer blocks built from Attention, MLP, and residual connections.',
-            difference: 'Microgpt is around thousands of parameters and one layer, while real GPT scales to hundreds of billions of parameters and hundreds of layers with optimizations like GQA, gated activations, and MoE.',
+            topic: 'Архітектура моделі',
+            similarity: 'Обидва мають спільну структуру блоків трансформатора, побудованих з Attention, MLP та залишкових з\'єднань.',
+            difference: 'Microgpt - це близько тисяч параметрів і один шар, тоді як real GPT масштабується до сотень мільярдів параметрів і сотень шарів з оптимізаціями, такими як GQA, gated activations та MoE.',
           },
           {
-            topic: 'Training Method',
-            similarity: 'Both update parameters through backpropagation and Adam-family optimizers to minimize loss.',
-            difference: 'Real GPT uses post-training (SFT and preference optimization such as RLHF/RLAIF) after large-scale pretraining to improve instruction-following, response quality, and safety alignment.',
+            topic: 'Метод навчання',
+            similarity: 'Обидва оновлюють параметри через backpropagation та optimizer сім\'ї Adam для мінімізації loss.',
+            difference: 'Real GPT використовує post-training (SFT та preference optimization, такі як RLHF/RLAIF) після великомасштабного pretraining для покращення слідування інструкціям, якості відповідей та вирівнювання безпеки.',
           },
           {
-            topic: 'Inference',
-            similarity: 'Both generate tokens autoregressively one step at a time.',
-            difference: 'Real GPT requires a separate large-scale inference stack combining batching, KV cache paging, quantization, speculative decoding, and multi-GPU distributed serving.',
+            topic: 'Висновок',
+            similarity: 'Обидва генерують токени autoregressively один за одним.',
+            difference: 'Real GPT вимагає окремого великомасштабного стека inference, що поєднує batching, KV cache paging, quantization, speculative decoding та мультиGPU розподілене обслуговування.',
           },
         ],
       },

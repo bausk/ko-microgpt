@@ -92,8 +92,8 @@ function HeroSection({
   }
 
   const resolvedExampleLanguage = exampleLanguage === 'en' ? 'en' : 'ko'
-  const heroLabLabel = resolvedExampleLanguage === 'en' ? 'ENGLISH GPT LAB' : 'KOREAN GPT LAB'
-  const heroNameLabel = resolvedExampleLanguage === 'en' ? 'ENGLISH NAME' : 'KOREAN NAME'
+  const heroLabLabel = resolvedExampleLanguage === 'en' ? 'UKRAINIAN GPT LAB' : 'KOREAN GPT LAB'
+  const heroNameLabel = resolvedExampleLanguage === 'en' ? 'ГЕНЕРАТОР ІМЕН' : 'KOREAN NAME'
   const introText = copy?.introByExampleLanguage?.[resolvedExampleLanguage] ?? copy?.intro ?? ''
   const projectInfoEndText = copy?.projectInfoEndByExampleLanguage?.[resolvedExampleLanguage] ?? copy?.projectInfoEnd ?? ''
 
