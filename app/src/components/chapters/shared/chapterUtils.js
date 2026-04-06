@@ -67,7 +67,7 @@ export const parseDatasetNamesFromRaw = (rawText, language = 'ko') => {
   if (normalizeExampleLanguage(language) === 'en') {
     return rawDocs
       .map((name) => name.toLowerCase())
-      .filter((name) => /^[a-z]+$/u.test(name))
+      .filter((name) => /^[а-я]+$/u.test(name))
   }
 
   return rawDocs.filter((name) => /^[가-힣]+$/u.test(name))
@@ -82,7 +82,7 @@ export const buildTokenizerFromRaw = (rawText, language = 'ko') => {
     }
     throw new Error('No valid Hangul names found in dataset.')
   }
-
+  console.log('NFD');
   const docs =
     normalizedLanguage === 'ko'
       ? datasetNames.map((name) => name.normalize('NFD'))
@@ -111,7 +111,7 @@ export const decomposeNameToModelTokens = (name, language = 'ko') => {
   if (normalizeExampleLanguage(language) !== 'ko') {
     const normalized = typeof name === 'string' ? name.trim().toLowerCase() : ''
     const tokens = [...normalized].flatMap((char) => {
-      if (!/[a-z]/u.test(char)) {
+      if (!/[а-я]/u.test(char)) {
         return []
       }
       return [
